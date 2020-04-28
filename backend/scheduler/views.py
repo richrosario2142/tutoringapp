@@ -1,6 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Student
 
-# Create your views here.
 def tutoring(request):
-    return HttpResponse('We in da buildin')
+    students = Student.objects.all()
+    output = "Wuz good "
+
+    for student in students:
+        output += f"{student.first_name}, and "
+
+    output += "Shloop Clan. Ya'll good?"
+        
+    return HttpResponse(output)
