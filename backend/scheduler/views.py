@@ -4,11 +4,11 @@ from .models import Student
 
 def tutoring(request):
     students = Student.objects.all()
-    output = "Wuz good "
+    output = "The students are "
 
     for student in students:
         output += f"{student.first_name}, and "
 
-    output += "Shloop Clan. Ya'll good?"
+    output += "that's it."
         
     return HttpResponse(output)
